@@ -8,6 +8,72 @@
     <link rel="icon" href="pool_icon.png" type="image/png">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
+    <style>
+      /* Bay scene — tropical open ocean, golden sun, cliff islands */
+      .scene {
+        background: linear-gradient(180deg,
+          rgba(55,155,195,0.97) 0%,
+          rgba(0,165,178,0.97) 38%,
+          rgba(0,138,160,0.97) 58%,
+          rgba(0,92,125,0.99) 100%
+        );
+      }
+
+      .horizon {
+        height: 52vh;
+        background:
+          /* Sun burst — upper right */
+          radial-gradient(ellipse at 66% 26%, rgba(255,248,185,0.98) 0% 2.5%, rgba(255,222,75,0.82) 2.5% 7%, rgba(255,168,28,0.52) 7% 16%, rgba(255,125,0,0.22) 16% 28%, transparent 32%),
+          /* Left island group */
+          radial-gradient(ellipse at 0% 100%, rgba(10,46,20,0.99) 0% 30%, transparent 32%),
+          radial-gradient(ellipse at 14% 100%, rgba(16,58,26,0.95) 0% 22%, transparent 26%),
+          radial-gradient(ellipse at 7% 96%, rgba(12,50,22,0.88) 0% 16%, transparent 20%),
+          /* Right island */
+          radial-gradient(ellipse at 98% 100%, rgba(12,48,22,0.97) 0% 26%, transparent 30%),
+          radial-gradient(ellipse at 87% 96%, rgba(18,58,28,0.82) 0% 14%, transparent 19%),
+          /* Sky — blue at top, golden glow at horizon */
+          linear-gradient(180deg,
+            rgba(55,150,195,0.92) 0%,
+            rgba(110,205,218,0.72) 32%,
+            rgba(195,235,195,0.62) 50%,
+            rgba(255,228,125,0.92) 60%,
+            rgba(255,162,42,0.95) 67%,
+            rgba(0,148,162,0.97) 78%
+          );
+      }
+
+      .horizon::before {
+        background: none;
+        opacity: 0;
+      }
+
+      .water {
+        inset: 48vh 0 0;
+        background:
+          /* Sun reflection on water surface */
+          radial-gradient(ellipse at 64% 4%, rgba(255,245,175,0.52) 0% 2%, rgba(255,218,72,0.28) 2% 9%, transparent 16%),
+          /* Scatter highlights */
+          radial-gradient(ellipse at 28% 18%, rgba(255,255,255,0.32) 0 1.2%, transparent 9%),
+          radial-gradient(ellipse at 75% 44%, rgba(255,255,255,0.22) 0 1%, transparent 7%),
+          /* Wave lines — slightly more dynamic than pool */
+          repeating-linear-gradient(171deg, rgba(255,255,255,0.17) 0 1px, transparent 1px 16px),
+          repeating-linear-gradient(19deg, rgba(255,255,255,0.11) 0 1px, transparent 1px 22px),
+          /* Water — vivid tropical teal */
+          linear-gradient(180deg,
+            rgba(0,198,188,0.94) 0%,
+            rgba(0,172,178,0.96) 28%,
+            rgba(0,138,162,0.97) 58%,
+            rgba(0,88,128,0.99) 100%
+          );
+      }
+
+      .water::after {
+        background:
+          radial-gradient(ellipse at 64% 7%, rgba(255,232,145,0.38), transparent 30%),
+          linear-gradient(180deg, transparent 58%, rgba(0,28,58,0.32));
+        mix-blend-mode: screen;
+      }
+    </style>
   </head>
   <body>
 
