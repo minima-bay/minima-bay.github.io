@@ -229,7 +229,7 @@ h2 {
   align-items: center;
   gap: 6px;
   margin-bottom: 14px;
-  color: var(--muted);
+  color: #0f5b4a;
   font-size: 12px;
   font-weight: 800;
   text-decoration: none;
@@ -238,7 +238,7 @@ h2 {
   transition: color 160ms ease;
 }
 
-.back-link:hover { color: var(--text); }
+.back-link:hover { color: var(--ink); }
 
 /* ── Token icons ── */
 
