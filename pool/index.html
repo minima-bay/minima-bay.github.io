@@ -91,6 +91,58 @@
         </div>
       </div>
 
+      <section class="how-panel">
+        <h2 class="section-label">How it works</h2>
+        <div class="step-grid">
+          <div class="step-card">
+            <span class="step-name">Swap</span>
+            <p>Send MINIMA or USDT and receive the other token at the current reserve price. A 1% fee stays in the pool and the price adjusts automatically with every trade.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-name">Add liquidity</span>
+            <p>Deposit MINIMA and USDT in the current pool ratio. Receive LP tokens representing your proportional share of both reserves.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-name">Remove liquidity</span>
+            <p>Return your LP tokens at any time and receive your proportional share of both reserves, including all trading fees accumulated since your deposit.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="lp-panel">
+        <h2 class="section-label">For liquidity providers</h2>
+        <div class="lp-grid">
+          <div>
+            <strong>Earn fees passively</strong>
+            <p>The 1% trading fee stays in pool reserves. As volume accumulates, each LP token is redeemable for a growing share of the pool.</p>
+          </div>
+          <div>
+            <strong>Fungible LP tokens</strong>
+            <p>LP tokens are standard fungible tokens. Your ownership percentage equals your LP balance divided by the total circulating supply.</p>
+          </div>
+          <div>
+            <strong>No lock-up</strong>
+            <p>Remove your liquidity at any time. There is no vesting schedule, no withdrawal delay, and no minimum holding period.</p>
+          </div>
+          <div>
+            <strong>Impermanent loss risk</strong>
+            <p>If the MINIMA/USDT price diverges significantly from your entry point, the pool's rebalancing may reduce your value versus simply holding both assets.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-panel">
+        <h2 class="section-label">Trust properties</h2>
+        <ul class="trust-list">
+          <li><strong>No admin key</strong> — no operator can pause, upgrade, or drain the pool</li>
+          <li><strong>Non-custodial</strong> — funds are controlled by the pool script, not any wallet or server</li>
+          <li><strong>No fee receiver</strong> — fees stay in reserves and accrue to LPs automatically</li>
+          <li><strong>Script-enforced</strong> — every swap, deposit, and withdrawal is validated on-chain by the contract</li>
+          <li><strong>Open source</strong> — all contract code and MiniDAPP source is publicly auditable on GitHub</li>
+          <li><strong>No upgrade path</strong> — migration to a new version is explicit and user-led, not operator-triggered</li>
+        </ul>
+      </section>
+
       <section class="download-panel">
         <div class="download-head">
           <h2>Install the MiniDAPP</h2>
@@ -104,6 +156,29 @@
           Download on GitHub
         </a>
         <p class="status-note">Beta — local prototype. Not yet connected to a live Minima node. Real-fund trading is not available in this release.</p>
+      </section>
+
+      <section class="roadmap-panel">
+        <h2 class="section-label">Roadmap</h2>
+        <ol class="milestone-list">
+          <li class="ms-done">
+            <span class="ms-name">Local UI prototype</span>
+            <span class="ms-tag ms-tag-done">Done — v0.0.2 beta</span>
+          </li>
+          <li class="ms-active">
+            <span class="ms-name">Test-token AMM prototype</span>
+            <span class="ms-tag ms-tag-active">In progress</span>
+          </li>
+          <li>
+            <span class="ms-name">External contract review</span>
+          </li>
+          <li>
+            <span class="ms-name">Small capped real-fund trial</span>
+          </li>
+          <li>
+            <span class="ms-name">Public trading</span>
+          </li>
+        </ol>
       </section>
 
     </main>

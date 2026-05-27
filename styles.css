@@ -489,6 +489,7 @@ h2 {
 .download-panel {
   border-radius: 6px;
   padding: 20px;
+  margin-bottom: var(--section-gap);
   background: var(--surface-mid);
   backdrop-filter: blur(18px) saturate(130%);
 }
@@ -557,6 +558,206 @@ h2 {
   line-height: 1.45;
 }
 
+/* ── Pool page: section label ── */
+
+.section-label {
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── Pool page: how it works ── */
+
+.how-panel {
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: var(--section-gap);
+  background: var(--surface-mid);
+  backdrop-filter: blur(18px) saturate(130%);
+}
+
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.step-card {
+  border-radius: 6px;
+  padding: 14px;
+  background: var(--surface-faint);
+}
+
+.step-name {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.step-card p {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* ── Pool page: LP panel ── */
+
+.lp-panel {
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: var(--section-gap);
+  background: var(--surface-mid);
+  backdrop-filter: blur(18px) saturate(130%);
+}
+
+.lp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.lp-grid div {
+  border-radius: 6px;
+  padding: 14px;
+  background: var(--surface-faint);
+}
+
+.lp-grid strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.lp-grid p {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* ── Pool page: trust panel ── */
+
+.trust-panel {
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: var(--section-gap);
+  background: var(--surface-mid);
+  backdrop-filter: blur(18px) saturate(130%);
+}
+
+.trust-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.trust-list li {
+  padding: 12px 14px;
+  border-radius: 6px;
+  background: var(--surface-faint);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.trust-list strong { color: var(--text); }
+
+/* ── Pool page: roadmap ── */
+
+.roadmap-panel {
+  border-radius: 6px;
+  padding: 20px;
+  background: var(--surface-mid);
+  backdrop-filter: blur(18px) saturate(130%);
+}
+
+.milestone-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: ms;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.milestone-list li {
+  counter-increment: ms;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 6px;
+  background: var(--surface-faint);
+}
+
+.milestone-list li::before {
+  content: counter(ms);
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface-soft);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.ms-done::before {
+  background: rgba(32,214,207,0.22);
+  color: var(--cyan);
+}
+
+.ms-active::before {
+  background: rgba(255,224,138,0.2);
+  color: var(--danger);
+}
+
+.ms-name {
+  flex: 1;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.ms-active .ms-name,
+.milestone-list li:not(.ms-done) .ms-name { color: var(--text); }
+
+.ms-tag {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.ms-tag-done {
+  background: rgba(32,214,207,0.18);
+  color: var(--cyan);
+}
+
+.ms-tag-active {
+  background: rgba(255,224,138,0.18);
+  color: var(--danger);
+}
+
 /* ── Mobile ── */
 
 @media (max-width: 560px) {
@@ -594,4 +795,10 @@ h2 {
   .feature-grid { grid-template-columns: 1fr; }
 
   .pair-label { font-size: 17px; }
+
+  .step-grid { grid-template-columns: 1fr; }
+
+  .lp-grid { grid-template-columns: 1fr; }
+
+  .ms-tag { font-size: 10px; padding: 3px 8px; }
 }
