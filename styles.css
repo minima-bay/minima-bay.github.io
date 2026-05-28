@@ -295,6 +295,16 @@ h2 {
   opacity: 0.6;
 }
 
+.protocol-card-link {
+  text-decoration: none;
+  color: inherit;
+  transition: background 160ms ease;
+}
+
+.protocol-card-link:hover {
+  background: var(--surface);
+}
+
 .protocol-info {
   display: flex;
   align-items: center;
