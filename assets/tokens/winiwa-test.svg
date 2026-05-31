@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
   <title id="title">Winiwa Test token</title>
-  <desc id="desc">No-value Winiwa test token for The Pool beta.</desc>
+  <desc id="desc">No-value public Winiwa test token for Minima Bay MiniDAPP development.</desc>
   <defs>
     <linearGradient id="background" x1="28" y1="28" x2="228" y2="228" gradientUnits="userSpaceOnUse">
       <stop stop-color="#005d62"/>
