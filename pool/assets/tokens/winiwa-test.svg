@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Winiwa Test token</title>
+  <desc id="desc">No-value Winiwa test token for The Pool beta.</desc>
+  <defs>
+    <linearGradient id="background" x1="28" y1="28" x2="228" y2="228" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#005d62"/>
+      <stop offset="1" stop-color="#26d2cf"/>
+    </linearGradient>
+  </defs>
+  <circle cx="128" cy="128" r="122" fill="url(#background)"/>
+  <circle cx="128" cy="128" r="105" fill="#003d45" fill-opacity=".82"/>
+  <circle cx="128" cy="128" r="118" fill="none" stroke="#fffdf2" stroke-width="8"/>
+  <text x="128" y="162" fill="#fffdf2" font-family="Arial, sans-serif" font-size="112" font-weight="700" text-anchor="middle">W</text>
+  <circle cx="198" cy="198" r="25" fill="#ffbd59" stroke="#fffdf2" stroke-width="7"/>
+</svg>

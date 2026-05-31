@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">The Pool LP Test token</title>
+  <desc id="desc">No-value liquidity-provider test token for The Pool beta.</desc>
+  <defs>
+    <linearGradient id="background" x1="28" y1="24" x2="228" y2="232" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00626a"/>
+      <stop offset="1" stop-color="#1fc7c4"/>
+    </linearGradient>
+  </defs>
+  <circle cx="128" cy="128" r="122" fill="url(#background)"/>
+  <circle cx="128" cy="128" r="105" fill="#003d45" fill-opacity=".86"/>
+  <circle cx="128" cy="128" r="118" fill="none" stroke="#fffdf2" stroke-width="8"/>
+  <path d="M74 80h108v20H74zm0 38h108v20H74zm0 38h108v20H74z" fill="#fffdf2"/>
+  <path d="M92 69h18v118H92zm54 0h18v118h-18z" fill="#fffdf2"/>
+  <path d="M53 190c21 0 21 15 42 15s21-15 42-15 21 15 42 15 21-15 42-15v20c-21 0-21 15-42 15s-21-15-42-15-21 15-42 15-21-15-42-15z" fill="#26d2cf"/>
+  <circle cx="198" cy="198" r="25" fill="#ffbd59" stroke="#fffdf2" stroke-width="7"/>
+  <text x="198" y="205" fill="#003d45" font-family="Arial, sans-serif" font-size="20" font-weight="700" text-anchor="middle">LP</text>
+</svg>
