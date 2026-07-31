@@ -23,13 +23,21 @@
         background:
           /* Sun burst — upper right */
           radial-gradient(ellipse at 66% 26%, rgba(255,248,185,0.98) 0% 2.5%, rgba(255,222,75,0.82) 2.5% 7%, rgba(255,168,28,0.52) 7% 16%, rgba(255,125,0,0.22) 16% 28%, transparent 32%),
-          /* Left island group */
-          radial-gradient(ellipse at 0% 100%, rgba(10,46,20,0.99) 0% 30%, transparent 32%),
-          radial-gradient(ellipse at 14% 100%, rgba(16,58,26,0.95) 0% 22%, transparent 26%),
-          radial-gradient(ellipse at 7% 96%, rgba(12,50,22,0.88) 0% 16%, transparent 20%),
-          /* Right island */
-          radial-gradient(ellipse at 98% 100%, rgba(12,48,22,0.97) 0% 26%, transparent 30%),
-          radial-gradient(ellipse at 87% 96%, rgba(18,58,28,0.82) 0% 14%, transparent 19%),
+          /* HEADLANDS IN THE POOL'S OWN SEA, NOT NEAR-BLACK GREEN.
+             These were rgba(10,46,20) to rgba(18,58,28) at 0.82 to 0.99: forest greens at almost full
+             opacity, which read as a heavy dark band across the middle of the page and belonged to no
+             other surface in the Bay. The water beneath them was already tropical teal, so the land
+             was the only thing out of family.
+             Now --sea-lo #005369 and --sea-mid #007d91 from the app, layered by distance: nearest
+             deepest, furthest palest. Distance carried by lightness rather than by darkness, which is
+             both how haze actually works and what keeps the page bright. */
+          /* Left headlands */
+          radial-gradient(ellipse at 0% 100%, rgba(0,83,105,0.66) 0% 30%, transparent 32%),
+          radial-gradient(ellipse at 14% 100%, rgba(0,110,132,0.54) 0% 22%, transparent 26%),
+          radial-gradient(ellipse at 7% 96%, rgba(0,125,145,0.42) 0% 16%, transparent 20%),
+          /* Right headland */
+          radial-gradient(ellipse at 98% 100%, rgba(0,83,105,0.62) 0% 26%, transparent 30%),
+          radial-gradient(ellipse at 87% 96%, rgba(0,125,145,0.44) 0% 14%, transparent 19%),
           /* Sky — blue at top, golden glow at horizon */
           linear-gradient(180deg,
             rgba(55,150,195,0.92) 0%,

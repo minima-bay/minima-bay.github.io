@@ -37,7 +37,16 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
+  /* THE SAME TYPE AS THE APP, RENDERED THE SAME WAY.
+   *
+   * This was Arial, Helvetica, which is not what The Pool uses and is the blurrier of the two at
+   * small sizes on a gradient. Matched to the app's --sans, and given the two hints that decide
+   * whether type looks crisp or soft on a coloured backdrop: subpixel smoothing off, so glyph edges
+   * are not tinted by whatever happens to be behind them, and legibility-first rendering. */
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
@@ -57,21 +66,35 @@ h1, h2, h3, p { margin: 0; }
   position: absolute;
   inset: 0 0 auto;
   height: 42vh;
+  /* HEADLANDS IN THE POOL'S OWN PALETTE, NOT FOREST GREEN.
+   *
+   * These were rgba(19,82,55) and rgba(47,105,71) at 0.9 and 0.75: near-black greens that read as
+   * heavy mountains and belonged to no other surface in the Bay. The water below them was already
+   * exactly The Pool's sea, rgba(27,185,179), rgba(0,125,145) and rgba(0,83,105), which are
+   * --sea-hi, --sea-mid and --sea-lo from the app, so the horizon was the only thing out of family.
+   *
+   * They are now the same seas at low alpha. Distance is carried by lightness rather than by
+   * darkness, which is also how distance actually looks: the far headland is paler than the near
+   * one, not blacker, and the sand reads as sand instead of as shadow. --sand-hi #f6eec4 and
+   * --sand-lo #cbb88b, again straight from the app. */
   background:
-    radial-gradient(ellipse at 76% 15%, rgba(19,82,55,0.9) 0 7%, transparent 7.5%),
-    radial-gradient(ellipse at 55% 28%, rgba(47,105,71,0.75) 0 17%, transparent 17.4%),
-    linear-gradient(180deg, rgba(245,236,191,0.18), rgba(232,213,164,0.9) 72%, rgba(206,184,139,0.95) 73%, rgba(226,204,158,0.95));
+    radial-gradient(ellipse at 76% 15%, rgba(0,83,105,0.34) 0 7%, transparent 7.5%),
+    radial-gradient(ellipse at 55% 28%, rgba(0,125,145,0.26) 0 17%, transparent 17.4%),
+    linear-gradient(180deg, rgba(246,238,196,0.22), rgba(246,238,196,0.92) 72%, rgba(203,184,139,0.95) 73%, rgba(246,238,196,0.96));
 }
 
 .horizon::before {
   content: "";
   position: absolute;
   inset: 0;
+  /* The ridge lines were rgba(33,47,38), rgba(24,42,32) and rgba(26,39,30): three near-blacks laid
+     over sand, which is what made the shore look bruised. Same strokes in --sea-lo at a fraction of
+     the weight, so they read as creases in the dunes catching light rather than as crevasses. */
   background:
-    linear-gradient(110deg, transparent 0 8%, rgba(33,47,38,0.35) 8.4% 8.8%, transparent 9.2% 100%),
-    linear-gradient(128deg, transparent 0 17%, rgba(24,42,32,0.28) 17.2% 17.6%, transparent 18% 100%),
-    linear-gradient(155deg, transparent 0 28%, rgba(26,39,30,0.22) 28.1% 28.4%, transparent 28.8% 100%);
-  opacity: 0.75;
+    linear-gradient(110deg, transparent 0 8%, rgba(0,83,105,0.13) 8.4% 8.8%, transparent 9.2% 100%),
+    linear-gradient(128deg, transparent 0 17%, rgba(0,83,105,0.10) 17.2% 17.6%, transparent 18% 100%),
+    linear-gradient(155deg, transparent 0 28%, rgba(0,83,105,0.08) 28.1% 28.4%, transparent 28.8% 100%);
+  opacity: 0.7;
 }
 
 .water {
@@ -119,8 +142,10 @@ h1 {
   font-size: 22px;
   font-weight: 800;
   line-height: 1;
-  color: #08463a;
-  text-shadow: 0 1px 0 rgba(255,253,242,0.85);
+  /* Darker than #08463a and with NO shadow at all. An emboss under a heading is a second copy of
+     every glyph offset by a pixel, which is softness by definition; contrast is what makes type look
+     sharp, so the colour does the work instead. --ink from the app. */
+  color: #053d46;
 }
 
 h2 {
@@ -137,9 +162,9 @@ h2 {
   margin-bottom: 20px;
   position: relative;
   z-index: 30;
-  /* Was a 20px-radius shadow on every glyph in the header, which is the main reason the page read
-     as out of focus. One crisp pixel of separation does the same job. */
-  text-shadow: 0 1px 2px rgba(0,55,70,0.55);
+  /* Was a 20px-radius shadow on every glyph, then a 2px one. Any blur radius at all smears a glyph
+     edge, and the header sits on the pale sand where it needs none: there is already plenty of
+     contrast between #053d46 type and #f6eec4 sand. No shadow. */
 }
 
 .brand {
