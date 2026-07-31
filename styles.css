@@ -142,10 +142,12 @@ h1 {
   font-size: 22px;
   font-weight: 800;
   line-height: 1;
-  /* Darker than #08463a and with NO shadow at all. An emboss under a heading is a second copy of
-     every glyph offset by a pixel, which is softness by definition; contrast is what makes type look
-     sharp, so the colour does the work instead. --ink from the app. */
-  color: #053d46;
+  /* LIGHT, NOT DARK. This went to --ink #053d46 for contrast, and contrast it had, but the name sits
+     on the blue of the sky rather than on the sand, and a dark heading there reads as weight where
+     the page wants air. Cream is also what every card title on this page already uses, so the name
+     now belongs to the same family as everything under it. Still no shadow: the separation comes
+     from the colour. */
+  color: var(--text);
 }
 
 h2 {
@@ -202,7 +204,10 @@ h2 {
 
 .topline p {
   margin-top: 4px;
-  color: #0f5b4a;
+  /* Followed the name. This was #0f5b4a, a dark green, which was fine under a dark title and reads
+     as a mistake under a light one: the two are one lockup and cannot disagree about which half of
+     the page they belong to. Muted rather than full cream so the name still leads. */
+  color: rgba(255,253,242,0.86);
   font-weight: 700;
 }
 
