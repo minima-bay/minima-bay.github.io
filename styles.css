@@ -3,11 +3,17 @@
   --bg: #d7d5b9;
   --surface: rgba(8, 93, 101, 0.5);
   --surface-deep: rgba(5, 61, 70, 0.72);
-  --surface-mid: rgba(0, 99, 108, 0.38);
+  /* Raised from 0.38. The cards are what text sits on, and at 0.38 the gradient behind them showed
+     through strongly enough that each letter had a different backdrop. Glass still looks like glass
+     at this weight, and the type now has something steady underneath it. */
+  --surface-mid: rgba(0, 88, 97, 0.58);
   --surface-soft: rgba(255, 253, 242, 0.12);
   --surface-faint: rgba(255, 253, 242, 0.07);
   --text: #fffdf2;
-  --muted: rgba(255, 253, 242, 0.76);
+  /* Raised from 0.76. Every secondary line on the page uses this, and at 0.76 over the gradient the
+     subtitles under each card sat close to the background rather than on it, which reads as soft
+     focus rather than as hierarchy. Contrast is what makes small text look sharp. */
+  --muted: rgba(255, 253, 242, 0.92);
   --line: rgba(255, 253, 242, 0.22);
   --accent: #fffdf2;
   --cyan: #20d6cf;
@@ -99,12 +105,22 @@ h1, h2, h3, p { margin: 0; }
 
 /* ── Header ── */
 
+/* THE TEXT LOOKED BLURRED, AND IT WAS THE SHADOWS UNDER IT.
+ *
+ * This carried a 30px-radius shadow and the header strip a 20px one. A shadow that soft does not
+ * read as depth, it reads as a halo: over a gradient it bleeds a light smear around every glyph and
+ * the whole page looks slightly out of focus. The glass panels are NOT the cause, their
+ * backdrop-filter blurs what is behind them, which is the point of them.
+ *
+ * What a shadow is for here is separating text from a background that moves under it, and 1px of
+ * offset does that. Kept tight and opaque instead of wide and faint, and the ink darkened, so the
+ * letters have edges. */
 h1 {
   font-size: 22px;
   font-weight: 800;
   line-height: 1;
-  color: #0f5b4a;
-  text-shadow: 0 1px 0 rgba(255,253,242,0.72), 0 12px 30px rgba(0,55,70,0.28);
+  color: #08463a;
+  text-shadow: 0 1px 0 rgba(255,253,242,0.85);
 }
 
 h2 {
@@ -121,7 +137,9 @@ h2 {
   margin-bottom: 20px;
   position: relative;
   z-index: 30;
-  text-shadow: 0 2px 20px rgba(0,55,70,0.35);
+  /* Was a 20px-radius shadow on every glyph in the header, which is the main reason the page read
+     as out of focus. One crisp pixel of separation does the same job. */
+  text-shadow: 0 1px 2px rgba(0,55,70,0.55);
 }
 
 .brand {
@@ -292,7 +310,10 @@ h2 {
 }
 
 .protocol-card.is-coming {
-  opacity: 0.6;
+  /* Raised from 0.6. These two are not built yet and should read as secondary, but 0.6 over a
+     gradient took the whole card, name included, close to unreadable, which looks like a rendering
+     fault rather than a deliberate state. The "Coming soon" pill already says what they are. */
+  opacity: 0.82;
 }
 
 .protocol-card-link {
