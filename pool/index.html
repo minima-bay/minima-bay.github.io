@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Pool: MINIMA / USDT on Minima</title>
-    <meta name="description" content="The Pool is an open-source, non-custodial MINIMA / USDT liquidity pool MiniDAPP for the Minima blockchain.">
+    <title>The Pool: an on-chain order book on Minima</title>
+    <meta name="description" content="The Pool is an open-source on-chain order book for the Minima blockchain. Download the MiniDapp for a desktop node or the APK for Android, or read the source.">
     <link rel="icon" href="pool_icon.png" type="image/png">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../styles.css">
@@ -18,7 +18,7 @@
 
     <main class="app">
 
-      <a class="back-link" href="../">← Minima Bay</a>
+      <a class="back-link" href="../">&larr; Minima Bay</a>
 
       <header class="topline">
         <div class="brand">
@@ -34,27 +34,27 @@
           </span>
           <div>
             <h1>The Pool</h1>
-            <p>Minima's splash</p>
+            <p>A dex splash</p>
           </div>
         </div>
-        <span class="version">v0.0.2 beta</span>
+        <!-- THE VERSION IS READ, NEVER TYPED.
+             The page this replaced carried "v0.0.2 beta" here and "v0.0.1 beta" in its download
+             panel: two hand-written numbers that disagreed with each other and with the releases
+             page. Both slots below are filled from the release itself at load, and if that read
+             fails they stay as dots rather than showing a number nobody earned. -->
+        <span class="version" id="relVersion" title="The version of the most recent release, read from GitHub when this page loads.">v&middot;&middot;&middot;&middot;&middot;&middot;&middot;</span>
         <nav class="project-links" aria-label="Project links">
-          <a class="bridge-link" href="https://mxusd.global/" target="_blank" rel="noreferrer" aria-label="USDT bridge" title="Bridge your USDT to Minima">
-            <svg class="icon-tabler" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-              <path d="M6 7h12a2 2 0 0 1 2 2v9a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-2a4 4 0 0 0 -8 0v2a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-9a2 2 0 0 1 2 -2" />
-            </svg>
-          </a>
-          <a href="https://github.com/minima-bay/the-minima-pool" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <a href="https://github.com/minima-bay/the-minima-pool" target="_blank" rel="noreferrer" aria-label="GitHub" title="Source on GitHub">
             <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
               <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.31-5.47-1.34-5.47-5.95 0-1.31.47-2.39 1.24-3.23-.13-.3-.54-1.53.12-3.19 0 0 1.01-.32 3.3 1.23a11.4 11.4 0 0 1 6.02 0c2.29-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.89.12 3.19.77.84 1.23 1.92 1.23 3.23 0 4.62-2.81 5.63-5.49 5.93.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5z"/>
             </svg>
           </a>
-          <a href="https://x.com/theminimapool" target="_blank" rel="noreferrer" aria-label="X">
+          <a href="https://x.com/theminimapool" target="_blank" rel="noreferrer" aria-label="X" title="The Pool on X">
             <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
               <path d="M18.9 2h3.68l-8.04 9.18L24 22h-7.41l-5.8-7.58L4.16 22H.47l8.6-9.83L0 2h7.59l5.24 6.93L18.9 2zm-1.29 18.1h2.04L6.48 3.8H4.29L17.61 20.1z"/>
             </svg>
           </a>
-          <a href="https://t.me/theminimapool" target="_blank" rel="noreferrer" aria-label="Telegram">
+          <a href="https://t.me/theminimapool" target="_blank" rel="noreferrer" aria-label="Telegram" title="The Pool on Telegram">
             <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
               <path d="M22.05 2.28c.32-.13.66.15.57.49l-3.35 17.95c-.08.43-.58.62-.93.35l-5.18-3.82-2.64 2.55c-.29.28-.78.14-.88-.25l-1.04-4.07-4.98-1.55c-.47-.15-.5-.8-.05-.99L22.05 2.28zm-4.04 5.04-8.07 7.27.78 3.05 1.7-1.64c.22-.21.56-.24.81-.06l3.85 2.84 2.34-12.5-12.6 7.33 2.42.75 8.77-7.04z"/>
             </svg>
@@ -62,107 +62,180 @@
         </nav>
       </header>
 
-      <section class="hero-panel">
-        <div class="hero-pair">
-          <span class="token-icon minima-icon"><img src="assets/MINIMA.svg" alt="MINIMA"></span>
-          <span class="pair-sep">+</span>
-          <span class="token-icon"><img src="assets/USDT.svg" alt="USDT"></span>
-          <span class="pair-label">MINIMA / USDT</span>
+      <section class="panel">
+        <div class="chiprow">
+          <span class="chip chip-warn">Test assets, no value</span>
+          <span class="chip">Not ready for real funds</span>
         </div>
-        <p class="hero-desc">An open-source, non-custodial constant-product liquidity pool MiniDAPP for the Minima blockchain. Swap MINIMA and USDT directly from your local node, with no bridges and no middlemen.</p>
+        <h2 class="hero-title">A trading venue that lives entirely on chain</h2>
+        <p class="hero-lede">Every resting order is a real coin holding real escrow, governed by a covenant. There is no matching engine, no sequencer, no operator and no server. Anyone can read the book, verify every order independently, and take any of them without asking permission.</p>
+        <p class="panel-sub">The market is Winiwa against USDx: test assets minted for this venue, backed by nothing and redeemable for nothing. Reading the book costs nothing and needs no balance.</p>
       </section>
 
-      <section class="download-panel">
-        <div class="download-head">
-          <h2>Install the MiniDAPP</h2>
-          <span class="version-label">v0.0.1 beta</span>
+      <section class="panel">
+        <h2 class="section-label">Download</h2>
+        <!-- One line, one job: say which release the two buttons lead to. It is built here with the
+             text it shows before the read completes, and only its words change afterwards, so
+             nothing on the page moves. If the read fails it says so rather than going quiet, and
+             the buttons still work because they point at the latest release either way. -->
+        <p class="rel-line" id="relLine">Reading the latest release from GitHub.</p>
+
+        <div class="get-grid">
+          <a class="dl-card" id="dlDesktop" href="https://github.com/minima-bay/the-minima-pool/releases/latest" target="_blank" rel="noreferrer">
+            <span class="dl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M3 5.5A1.5 1.5 0 0 1 4.5 4h15A1.5 1.5 0 0 1 21 5.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 14.5z"/>
+                <path d="M8 20h8"/>
+                <path d="M10 16v4"/>
+                <path d="M14 16v4"/>
+              </svg>
+            </span>
+            <span class="dl-text">
+              <span class="dl-main">Desktop MiniDapp</span>
+              <span class="dl-sub">.mds.zip &middot; <span id="sizeZip">&middot;&middot;&middot;</span></span>
+            </span>
+            <span class="dl-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 4v12M7 12l5 5 5-5" />
+              </svg>
+            </span>
+          </a>
+
+          <a class="dl-card" id="dlAndroid" href="https://github.com/minima-bay/the-minima-pool/releases/latest" target="_blank" rel="noreferrer">
+            <span class="dl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M7 4.5A1.5 1.5 0 0 1 8.5 3h7A1.5 1.5 0 0 1 17 4.5v15a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 7 19.5z"/>
+                <path d="M11 18h2"/>
+              </svg>
+            </span>
+            <span class="dl-text">
+              <span class="dl-main">Android</span>
+              <span class="dl-sub">.apk &middot; <span id="sizeApk">&middot;&middot;&middot;</span></span>
+            </span>
+            <span class="dl-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 4v12M7 12l5 5 5-5" />
+              </svg>
+            </span>
+          </a>
         </div>
-        <p class="download-desc">Download the <code>.mds.zip</code> package and install it in your Minima node's MiniDAPP store.</p>
-        <a class="dl-button" href="https://github.com/minima-bay/the-minima-pool/releases/latest" target="_blank" rel="noreferrer">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M12 3v13M7 11l5 5 5-5M4 20h16" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Download on GitHub
-        </a>
-        <p class="status-note">Local prototype, not yet connected to a live Minima node. Real-fund trading is not available in this release.</p>
-      </section>
 
-      <section class="roadmap-panel">
-        <h2 class="section-label">Roadmap</h2>
-        <ol class="milestone-list">
-          <li class="ms-done">
-            <span class="ms-name">Local UI prototype</span>
-            <span class="ms-tag ms-tag-done">Done · v0.0.2 beta</span>
-          </li>
-          <li class="ms-active">
-            <span class="ms-name">Test-token AMM prototype</span>
-            <span class="ms-tag ms-tag-active">In progress</span>
-          </li>
-          <li>
-            <span class="ms-name">External contract review</span>
-          </li>
-          <li>
-            <span class="ms-name">Small capped real-fund trial</span>
-          </li>
-          <li>
-            <span class="ms-name">Public trading</span>
-          </li>
-        </ol>
-      </section>
-
-      <section class="how-panel">
-        <h2 class="section-label">How it works</h2>
-        <div class="step-grid">
-          <div class="step-card">
-            <span class="step-name">Swap</span>
-            <p>Send MINIMA or USDT and receive the other token at the current reserve price. A 1% fee stays in the pool and the price adjusts automatically with every trade.</p>
-          </div>
-          <div class="step-card">
-            <span class="step-name">Add liquidity</span>
-            <p>Deposit MINIMA and USDT in the current pool ratio. Receive LP tokens representing your proportional share of both reserves.</p>
-          </div>
-          <div class="step-card">
-            <span class="step-name">Remove liquidity</span>
-            <p>Return your LP tokens at any time and receive your proportional share of both reserves, including all trading fees accumulated since your deposit.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="lp-panel">
-        <h2 class="section-label">For liquidity providers</h2>
-        <div class="lp-grid">
-          <div>
-            <strong>Earn fees passively</strong>
-            <p>The 1% trading fee stays in pool reserves. As volume accumulates, each LP token is redeemable for a growing share of the pool.</p>
-          </div>
-          <div>
-            <strong>Fungible LP tokens</strong>
-            <p>LP tokens are standard fungible tokens. Your ownership percentage equals your LP balance divided by the total circulating supply.</p>
-          </div>
-          <div>
-            <strong>No lock-up</strong>
-            <p>Remove your liquidity at any time. There is no vesting schedule, no withdrawal delay, and no minimum holding period.</p>
-          </div>
-          <div>
-            <strong>Impermanent loss risk</strong>
-            <p>If the MINIMA/USDT price diverges significantly from your entry point, the pool's rebalancing may reduce your value versus simply holding both assets.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="trust-panel">
-        <h2 class="section-label">Trust properties</h2>
-        <ul class="trust-list">
-          <li><strong>No admin key</strong>: no operator can pause, upgrade, or drain the pool</li>
-          <li><strong>Non-custodial</strong>: funds are controlled by the pool script, not any wallet or server</li>
-          <li><strong>No fee receiver</strong>: fees stay in reserves and accrue to LPs automatically</li>
-          <li><strong>Script-enforced</strong>: every swap, deposit, and withdrawal is validated on-chain by the contract</li>
-          <li><strong>Open source</strong>: all contract code and MiniDAPP source is publicly auditable on GitHub</li>
-          <li><strong>No upgrade path</strong>: migration to a new version is explicit and user-led, not operator-triggered</li>
+        <ul class="notes">
+          <li><strong>Desktop.</strong> Install the <code>.mds.zip</code> in the MiniDapp store of the Minima node you already run. Trading needs write permission; reading the book does not.</li>
+          <li><strong>Android.</strong> Install the APK beside Minima Core on the same phone. Signing an order needs the Admin toggle in Minima Core, and the app says so before it asks. Reading the venue never needs it.</li>
+          <li><strong>Check what you downloaded.</strong> Every release publishes the SHA256 of each file in its notes. Compare it against the file before installing.</li>
         </ul>
       </section>
 
+      <section class="panel">
+        <h2 class="section-label">Source</h2>
+        <p class="panel-sub">The covenant scripts, the app and the design documents are one public repository. Every deployed address is listed in <code>contracts/deployed/manifest.json</code>, and <code>tools/verify-contracts.mjs</code> proves the shipped script text is byte for byte what is on chain.</p>
+        <a class="btn-wide" href="https://github.com/minima-bay/the-minima-pool" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+            <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.31-5.47-1.34-5.47-5.95 0-1.31.47-2.39 1.24-3.23-.13-.3-.54-1.53.12-3.19 0 0 1.01-.32 3.3 1.23a11.4 11.4 0 0 1 6.02 0c2.29-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.89.12 3.19.77.84 1.23 1.92 1.23 3.23 0 4.62-2.81 5.63-5.49 5.93.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5z"/>
+          </svg>
+          minima-bay/the-minima-pool
+        </a>
+        <div class="link-row">
+          <a href="https://github.com/minima-bay/the-minima-pool/releases" target="_blank" rel="noreferrer">All releases</a>
+          <a href="https://github.com/minima-bay/the-minima-pool/blob/main/contracts/design/SECURITY.md" target="_blank" rel="noreferrer">Security</a>
+          <a href="https://github.com/minima-bay/the-minima-pool/blob/main/AGENT-BRAIN.md" target="_blank" rel="noreferrer">Ask an AI about it</a>
+        </div>
+      </section>
+
+      <p class="foot">Valueless test assets on Minima mainnet. No advice, no warranty, no custody, no admin key.</p>
+
     </main>
+
+    <script>
+      /* Fill the release slots from the release itself.
+       *
+       * Why a read rather than three numbers typed into the markup: a static number here is right
+       * on the day it is written and wrong on every day after, and the page this replaced proved
+       * it by shipping two different versions in two places, neither of which matched the latest
+       * release. Nothing below invents a value. Every slot starts as dots and stays as dots if the
+       * read does not return one.
+       *
+       * The buttons already point at /releases/latest before this runs, so the page works with
+       * scripting off, with the API rate-limited, or offline. What the read adds is the exact file
+       * rather than the page holding it, plus the version, date and size.
+       *
+       * No third party is introduced: this page is served by GitHub, so asking GitHub for its own
+       * release list tells nobody anything they did not already know. */
+      (function () {
+        var REPO = 'minima-bay/the-minima-pool';
+
+        var elVersion = document.getElementById('relVersion');
+        var elLine = document.getElementById('relLine');
+
+        function size(bytes) {
+          if (typeof bytes !== 'number' || !isFinite(bytes) || bytes <= 0) return null;
+          if (bytes >= 1048576) return (bytes / 1048576).toFixed(1) + ' MB';
+          return Math.round(bytes / 1024) + ' KB';
+        }
+
+        /* UTC, deliberately, not the reader's clock. This release went out at 23:07 UTC, so half of
+           Europe's browsers would render it as the following day and disagree with both the tag on
+           GitHub and the timestamp the release carries. One release, one date, everywhere. */
+        function stamp(iso) {
+          var d = new Date(iso);
+          if (isNaN(d.getTime())) return null;
+          return d.toLocaleDateString('en-GB', {
+            day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'
+          });
+        }
+
+        /* An asset is matched by the end of its file name, because the version sits in the middle
+           of it and moves with every release. */
+        function assetEndingIn(assets, suffix) {
+          for (var i = 0; i < assets.length; i++) {
+            var name = String(assets[i].name || '');
+            if (name.slice(-suffix.length).toLowerCase() === suffix) return assets[i];
+          }
+          return null;
+        }
+
+        function apply(rel) {
+          var assets = Array.isArray(rel.assets) ? rel.assets : [];
+          var tag = rel.tag_name ? String(rel.tag_name) : null;
+          var when = rel.published_at ? stamp(rel.published_at) : null;
+
+          if (tag) elVersion.textContent = tag.charAt(0) === 'v' ? tag : 'v' + tag;
+
+          elLine.textContent = tag
+            ? 'Latest release ' + tag + (when ? ', published ' + when + ' UTC' : '') + '.'
+            : 'Latest release, from GitHub.';
+
+          [
+            { id: 'dlDesktop', slot: 'sizeZip', suffix: '.mds.zip' },
+            { id: 'dlAndroid', slot: 'sizeApk', suffix: '.apk' }
+          ].forEach(function (t) {
+            var a = assetEndingIn(assets, t.suffix);
+            if (!a) return;                       /* leave the button on /releases/latest */
+            if (a.browser_download_url) document.getElementById(t.id).href = a.browser_download_url;
+            var s = size(a.size);
+            if (s) document.getElementById(t.slot).textContent = s;
+          });
+        }
+
+        function failed() {
+          /* Say what is not known. Do not imply the download is unavailable: it is not, the
+             buttons lead to the same release either way. */
+          elLine.textContent = 'Could not read the release details. The buttons below still go to the latest release.';
+        }
+
+        try {
+          fetch('https://api.github.com/repos/' + REPO + '/releases/latest', {
+            headers: { 'Accept': 'application/vnd.github+json' }
+          })
+            .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+            .then(apply)
+            .catch(failed);
+        } catch (e) {
+          failed();
+        }
+      })();
+    </script>
 
   </body>
 </html>

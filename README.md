@@ -12,21 +12,21 @@ Open-source DeFi MiniDAPPs for the [Minima](https://minima.global) blockchain.
 
 | Project | Status | Description |
 |---|---|---|
-| [The Pool](https://minima-bay.github.io/pool) | Beta | MINIMA / USDT constant-product AMM |
+| [The Pool](https://minima-bay.github.io/pool) | Test release | On-chain order book. Test assets, no value |
 | The Land | Coming soon | Lending protocol |
 | The Springboard | Coming soon | Perpetual DEX |
 
 ## Downloads
 
-MiniDAPP packages and SHA256 checksums are published on the Pool releases page:
+MiniDapp and Android packages, with the SHA256 of each file, are published on the Pool releases page:
 
 https://github.com/minima-bay/the-minima-pool/releases
 
-Verify your download before installing:
+Verify your download against the hash in the release notes before installing:
 
 ```
 # PowerShell
-(Get-FileHash "the-pool-<version>.mds.zip" -Algorithm SHA256).Hash
+(Get-FileHash "ThePool_<version>.mds.zip" -Algorithm SHA256).Hash
 ```
 
 ---
