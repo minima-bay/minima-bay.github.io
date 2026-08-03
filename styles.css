@@ -211,6 +211,25 @@ h2 {
   font-weight: 700;
 }
 
+/* ── The two rules above are RIGHT for the umbrella and WRONG for The Pool ──
+ *
+ * Founder, 2026-08-04: on /pool/ the name and the line under it were "barely readable". Measured
+ * rather than judged, and it is not close:
+ *
+ *   umbrella /       header sits on sky  #3797c3   cream on it = 3.23:1   passes for large text
+ *   pool     /pool/  header sits on sand #f4edc3   cream on it = 1.16:1   effectively invisible
+ *
+ * One shared stylesheet, two scenes that are opposites at the top of the page. The "LIGHT, NOT DARK"
+ * note above was reasoned about the blue sky and is kept, because on the umbrella it is correct.
+ * What was wrong was letting a decision about one background apply to both.
+ *
+ * So the ink is scoped by page rather than reversed. Dark teal on sand measures 10.07:1 for the name
+ * and 5.94:1 for the slogan, which keeps the same hierarchy the cream pair had, the name leading and
+ * the line under it subordinate. No shadow: this file has removed one twice for smearing glyph edges
+ * over a gradient, and at 10:1 there is nothing left for a shadow to do. */
+.pool-page h1 { color: var(--ink); }
+.pool-page .topline p { color: rgba(5,61,70,0.8); }
+
 .version {
   border-radius: 999px;
   padding: 9px 14px;
