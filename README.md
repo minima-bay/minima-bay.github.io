@@ -13,6 +13,7 @@ Open-source DeFi MiniDAPPs for the [Minima](https://minima.global) blockchain.
 | Project | Status | Description |
 |---|---|---|
 | [The Pool](https://minima-bay.github.io/pool) | Test release | On-chain order book. Test assets, no value |
+| [The Bridge](https://minima-bay.github.io/bridge) | Research | Canonical Ethereum and Minima bridge. Valueless only |
 | The Land | Coming soon | Lending protocol |
 | The Springboard | Coming soon | Perpetual DEX |
 

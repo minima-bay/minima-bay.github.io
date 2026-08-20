@@ -229,6 +229,8 @@ h2 {
  * over a gradient, and at 10:1 there is nothing left for a shadow to do. */
 .pool-page h1 { color: var(--ink); }
 .pool-page .topline p { color: rgba(5,61,70,0.8); }
+.bridge-page h1 { color: var(--ink); }
+.bridge-page .topline p { color: rgba(5,61,70,0.8); }
 
 .version {
   border-radius: 999px;
@@ -388,6 +390,10 @@ h2 {
 
 .protocol-icon.spring-icon {
   background: linear-gradient(135deg, rgba(180,120,255,0.95), rgba(80,40,160,0.95));
+}
+
+.protocol-icon.bridge-icon {
+  background: linear-gradient(135deg, rgba(255,179,71,0.96), rgba(202,82,30,0.96));
 }
 
 .protocol-icon svg {
