@@ -188,7 +188,7 @@ h2 {
   box-shadow: 0 8px 30px rgba(0,76,91,0.28);
 }
 
-.logo svg { width: 25px; height: 25px; }
+.logo svg, .logo img { width: 25px; height: 25px; }
 
 .logo path {
   fill: none;
@@ -231,6 +231,11 @@ h2 {
 .pool-page .topline p { color: rgba(5,61,70,0.8); }
 .bridge-page h1 { color: var(--ink); }
 .bridge-page .topline p { color: rgba(5,61,70,0.8); }
+.bridge-page .logo {
+  border: 0;
+  background: transparent;
+}
+.bridge-page .logo img { width: 34px; height: 34px; }
 
 .version {
   border-radius: 999px;
@@ -393,12 +398,19 @@ h2 {
 }
 
 .protocol-icon.bridge-icon {
-  background: linear-gradient(135deg, rgba(255,179,71,0.96), rgba(202,82,30,0.96));
+  border: 0;
+  background: transparent;
 }
 
 .protocol-icon svg {
   width: 26px;
   height: 26px;
+}
+
+.protocol-icon img {
+  width: 42px;
+  height: 42px;
+  display: block;
 }
 
 .protocol-icon path {
