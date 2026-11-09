@@ -110,6 +110,9 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   fill: none; stroke: var(--on-ground); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
 @media (hover: hover) and (pointer: fine) { .scan, .pc { display: flex; } .or { display: block; } }
 
+/* Until a release exists, Android's card matches Windows's: a drawn phone in place of the code. */
+.waiting .scan, .waiting .or, .choice:not(.waiting) .until-release { display: none; }
+
 /* The roadmap, as on mininotes.org: a line down the left, a dot for each step. Done is filled, now is ringed, ahead is hollow. */
 .road { list-style: none; margin: 0; padding: 0 0 0 28px; position: relative; max-width: 44em; }
 .road::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }

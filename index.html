@@ -38,14 +38,18 @@
       <h1>Finance, fully decentralised.</h1>
       <p class="lead">Minima Bay brings six apps together in one, true to <a class="onground" href="https://minima.global">Minima</a> and as easy to use as the best.</p>
       <div class="choices" id="download">
-        <div class="choice">
+        <div class="choice waiting" id="android-card">
           <h3>Android</h3>
+          <div class="pc until-release">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.8h2"/></svg>
+            <p>With your Minima node app.</p>
+          </div>
           <div class="scan">
             <img src="assets/android-qr.png" alt="A code to scan with an Android phone: it downloads Minima Bay">
             <p>Scan with your phone's camera.</p>
           </div>
           <p class="or">or</p>
-          <a class="button" id="get-android" href="android/">Download for Android</a>
+          <a class="button soon" id="get-android" aria-disabled="true">Coming soon</a>
         </div>
         <div class="choice">
           <h3>Windows</h3>
@@ -56,7 +60,7 @@
           <span class="button soon" aria-disabled="true">Coming soon</span>
         </div>
       </div>
-      <p class="small" id="which">Releases are published on <a class="onground" href="https://github.com/minima-bay/the-bay/releases">GitHub</a>.</p>
+      <p class="small" id="which" hidden><a class="onground" href="https://github.com/minima-bay/the-bay/releases"></a></p>
       <p class="small">In development: testing with valueless tokens comes before anything real. No independent audit yet.</p>
     </div>
     <figure class="phone">
@@ -152,8 +156,8 @@
 </footer>
 
 <script>
-  // The button goes straight to the newest Android file on GitHub, and the line under the cards says which version.
-  // Until a release has one, the button keeps android/ and the line keeps its words.
+  // Android says "Coming soon" until a release on GitHub has an Android file. From then on the code shows, the button
+  // goes straight to the newest file, and the line under the cards says which version.
   fetch("https://api.github.com/repos/minima-bay/the-bay/releases?per_page=10")
     .then(function (r) { return r.json(); })
     .then(function (releases) {
@@ -161,11 +165,17 @@
         if (releases[i].draft || releases[i].prerelease) continue;
         var file = (releases[i].assets || []).filter(function (a) { return /^(MinimaBay|TheBay)[-_]v?[0-9.]+\.apk$/.test(a.name); })[0];
         if (!file) continue;
-        document.getElementById("get-android").href = file.browser_download_url;
+        var button = document.getElementById("get-android");
+        button.href = file.browser_download_url;
+        button.textContent = "Download for Android";
+        button.classList.remove("soon");
+        button.removeAttribute("aria-disabled");
+        document.getElementById("android-card").classList.remove("waiting");
         var line = document.getElementById("which"), link = line.querySelector("a");
         line.textContent = "Version " + releases[i].tag_name.replace(/^v/, "") + " · ";
         link.textContent = "all releases on GitHub";
         line.appendChild(link);
+        line.hidden = false;
         return;
       }
     })
