@@ -1,0 +1,150 @@
+/* Minima Bay, the site. No fonts or scripts from elsewhere: the system's own type. */
+:root {
+  /* The app's shore, top to foot: sand, sea, ocean. */
+  --sand: #f6eec4;
+  --sand-lo: #d2cda3;
+  --sea: #2e918f;
+  --ground: #007d91;
+  --bay-ink: #053d46;
+  --on-ground: #fffdf2;
+  --card: rgba(5,61,70,.86);
+  --ink: #fffdf2;
+  --quiet: rgba(255,253,242,.78);
+  --line: rgba(255,253,242,.24);
+  --radius: 14px;
+  color-scheme: light;
+}
+/* On the sand: dark words and a light veil for the cards. */
+.bar, .hero { --on-ground: #053d46; --quiet: rgba(5,61,70,.82); --line: rgba(5,61,70,.22); --card: rgba(5,61,70,.07); }
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+a { color: var(--on-ground); text-underline-offset: 3px; text-decoration-color: rgba(255,253,242,.55); }
+a:hover { text-decoration-thickness: 2px; }
+img { max-width: 100%; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+/* The bar: out of the way while reading down, back at the first move up (assets/header.js). */
+.bar { background: var(--sand); color: var(--on-ground); }
+header.bar { position: sticky; top: 0; z-index: 20; transition: transform .25s ease; box-shadow: 0 1px 0 rgba(0,0,0,.08); }
+header.bar.away { transform: translateY(-100%); }
+@media (prefers-reduced-motion: reduce) { header.bar { transition: none; } }
+[id] { scroll-margin-top: 76px; }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--on-ground); text-decoration: none; font-weight: 700; font-size: 19px; }
+.brand img { width: 32px; height: 32px; border-radius: 7px; }
+.bar nav { display: flex; gap: 18px; flex-wrap: wrap; }
+.bar nav a { color: var(--on-ground); text-decoration: none; opacity: .88; font-size: 15px; }
+.bar nav a:hover { opacity: 1; text-decoration: underline; }
+
+/* The first thing seen */
+.hero { padding: 56px 0 72px; background: linear-gradient(180deg, var(--sand), var(--sand-lo)); color: var(--on-ground); }
+.hero .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; }
+.hero h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.12; margin: 0 0 18px; letter-spacing: -0.5px; }
+.hero p.lead { font-size: 19px; margin: 0 0 28px; opacity: .92; max-width: 34em; }
+.button {
+  display: inline-block; padding: 12px 20px; border-radius: 10px; font-weight: 600; text-decoration: none;
+  background: var(--sand); color: var(--ground); border: 1px solid transparent;
+}
+.button:hover { background: #fff; text-decoration: none; }
+.hero .button { background: var(--bay-ink); color: #fffdf2; }
+.hero .button:hover { background: #0f5b4a; }
+.hero .button.soon, .hero .button.soon:hover { background: transparent; color: var(--quiet); border-color: var(--line); }
+.small { font-size: 14px; opacity: .85; margin-top: 14px; }
+a.onground { color: var(--on-ground); text-decoration: underline; text-decoration-color: currentColor; }
+
+/* The phone. The animation replaces .screen, at the same size, once the design is settled:
+   <video ... style="display:block;width:100%;aspect-ratio:540/1100;border-radius:26px">. */
+.phone { margin: 0 auto; width: min(300px, 78vw); padding: 10px; background: var(--bay-ink); border-radius: 34px;
+  box-shadow: 0 22px 48px rgba(5,61,70,.35); }
+.screen { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; width: 100%;
+  aspect-ratio: 540 / 1100; border-radius: 26px; background: linear-gradient(180deg, #f6eec4 0%, #d2cda3 24%, #2e918f 52%, #008a95 100%); color: #fffdf2; }
+.screen img { width: 96px; height: 96px; border-radius: 22px; }
+.screen span { font-weight: 700; font-size: 20px; }
+
+/* Sections */
+section { padding: 56px 0; }
+h2 { font-size: clamp(28px, 4vw, 40px); line-height: 1.15; margin: 0 0 12px; letter-spacing: -0.4px; }
+.sub { color: var(--on-ground); margin: 0 0 28px; max-width: 42em; }
+/* The shore's middle: its title still on the sand, its cards going down into the sea. */
+#apps { padding-top: 24px; background: linear-gradient(180deg, var(--sand-lo) 0, var(--sand-lo) 170px, var(--sea) 420px, var(--ground) 100%); }
+#apps h2, #apps .sub { color: var(--bay-ink); }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; }
+.card h3 { margin: 0 0 6px; font-size: 20px; line-height: 1.3; }
+.card p { margin: 0; color: var(--quiet); font-size: 16px; }
+
+/* The six apps: the app's own icon, its name, one line, where it stands. */
+.app { display: flex; flex-direction: column; align-items: flex-start; }
+.app img { width: 56px; height: 56px; border-radius: 13px; margin-bottom: 12px; }
+.app p { flex: 1; }
+.status { margin-top: 14px; font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--quiet); }
+.status.live { color: var(--sand); border-color: rgba(246,238,196,.5); }
+
+.links { display: flex; gap: 12px; flex-wrap: wrap; }
+.links .button { background: transparent; color: var(--on-ground); border-color: rgba(255,253,242,.45); }
+.links .button:hover { background: rgba(255,253,242,.08); border-color: var(--on-ground); }
+
+footer { padding: 28px 0; font-size: 15px; }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+/* Two download cards of one size. Android's square is its code, Windows's a drawn laptop. */
+.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 520px; }
+.choice { display: flex; flex-direction: column; gap: 12px; background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 18px; }
+.choice h3 { margin: 0; font-size: 18px; }
+.choice .button { margin-top: auto; text-align: center; }
+.or { margin: -4px 0; font-size: 14px; opacity: .75; text-align: center; display: none; }
+
+/* The code and the laptop are shown only where there is a mouse; on a phone the button is the way. */
+.scan, .pc { display: none; flex-direction: column; align-items: center; gap: 8px; }
+.scan img { width: 132px; height: 132px; background: #fff; padding: 8px; border-radius: 10px; }
+.scan p, .pc p { margin: 0; font-size: 14px; opacity: .9; text-align: center; }
+.pc svg { width: 132px; height: 132px; padding: 22px; border-radius: 10px; background: var(--card);
+  fill: none; stroke: var(--on-ground); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+@media (hover: hover) and (pointer: fine) { .scan, .pc { display: flex; } .or { display: block; } }
+
+/* The roadmap, as on mininotes.org: a line down the left, a dot for each step. Done is filled, now is ringed, ahead is hollow. */
+.road { list-style: none; margin: 0; padding: 0 0 0 28px; position: relative; max-width: 44em; }
+.road::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+.road li { position: relative; padding: 0 0 26px; }
+.road li:last-child { padding-bottom: 0; }
+.road li::before { content: ""; position: absolute; left: -28px; top: 5px; width: 12px; height: 12px; border-radius: 50%;
+  background: var(--ground); border: 2px solid var(--on-ground); }
+.road li.done::before { background: var(--sand); border-color: var(--sand); }
+.road li.now::before { background: var(--ground); border-color: var(--sand); box-shadow: 0 0 0 4px rgba(246,238,196,.3); }
+.road .when { font-size: 13px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.road h3 { margin: 2px 0 4px; font-size: 19px; }
+.road p { margin: 0; font-size: 16px; }
+/* The three stages to real tokens, each on its own card, set apart from the history above them. */
+.road li.stage { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 18px; margin-bottom: 14px; }
+.road li.stage:last-child { margin-bottom: 0; }
+.road li.stage::before { top: 19px; }
+.road li.stage .when { color: var(--sand); }
+.road li.stage h3 { font-size: 21px; }
+
+/* A table of pages. */
+.oldpages { width: 100%; border-collapse: collapse; font-size: 15px; }
+.oldpages th, .oldpages td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line); }
+.oldpages th { font-weight: 600; }
+.scroll { overflow-x: auto; }
+
+@media (max-width: 760px) {
+  .hero { padding: 36px 0 48px; }
+  .hero .wrap { grid-template-columns: 1fr; row-gap: 0; }
+  /* On a phone, the app first and the downloads under it, as on mininotes.org. */
+  .hero .wrap > div { display: contents; }
+  .hero figure.phone { order: 1; margin: 4px auto 32px; }
+  .hero .choices, .hero p.small { order: 2; }
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .grid.claims { grid-template-columns: 1fr; }
+  .card { padding: 16px; }
+  .bar nav { gap: 14px; }
+}
+@media (max-width: 420px) { .choices { grid-template-columns: 1fr; } }

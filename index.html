@@ -1,201 +1,176 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Minima Bay: Minima DeFi dapps</title>
-    <meta name="description" content="Minima Bay is a collection of non-custodial DeFi protocol MiniDAPPs for the Minima blockchain.">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-      /* Bay scene — tropical open ocean, golden sun, cliff islands */
-      .scene {
-        background: linear-gradient(180deg,
-          rgba(55,155,195,0.97) 0%,
-          rgba(0,165,178,0.97) 38%,
-          rgba(0,138,160,0.97) 58%,
-          rgba(0,92,125,0.99) 100%
-        );
-      }
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minima Bay: six Minima DeFi apps in one</title>
+<meta name="description" content="Minima Bay: The Faucet, The Bridge, The Pool, The Rapids, The Land and The Springboard, in one app. For Android.">
+<meta name="theme-color" content="#f6eec4">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="minima-bay-icon-512.png">
+<link rel="stylesheet" href="assets/site.css">
+<meta property="og:site_name" content="Minima Bay">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Minima Bay">
+<meta property="og:description" content="Six Minima DeFi apps in one, with your assets in your own hands.">
+<meta property="og:url" content="https://minimabay.org/">
+<meta property="og:image" content="https://minimabay.org/assets/the-bay-banner-1500x500.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@MinimaBay">
+</head>
+<body>
 
-      .horizon {
-        height: 52vh;
-        background:
-          /* Sun burst — upper right */
-          radial-gradient(ellipse at 66% 26%, rgba(255,248,185,0.98) 0% 2.5%, rgba(255,222,75,0.82) 2.5% 7%, rgba(255,168,28,0.52) 7% 16%, rgba(255,125,0,0.22) 16% 28%, transparent 32%),
-          /* HEADLANDS IN THE POOL'S OWN SEA, NOT NEAR-BLACK GREEN.
-             These were rgba(10,46,20) to rgba(18,58,28) at 0.82 to 0.99: forest greens at almost full
-             opacity, which read as a heavy dark band across the middle of the page and belonged to no
-             other surface in the Bay. The water beneath them was already tropical teal, so the land
-             was the only thing out of family.
-             Now --sea-lo #005369 and --sea-mid #007d91 from the app, layered by distance: nearest
-             deepest, furthest palest. Distance carried by lightness rather than by darkness, which is
-             both how haze actually works and what keeps the page bright. */
-          /* Left headlands */
-          radial-gradient(ellipse at 0% 100%, rgba(0,83,105,0.66) 0% 30%, transparent 32%),
-          radial-gradient(ellipse at 14% 100%, rgba(0,110,132,0.54) 0% 22%, transparent 26%),
-          radial-gradient(ellipse at 7% 96%, rgba(0,125,145,0.42) 0% 16%, transparent 20%),
-          /* Right headland */
-          radial-gradient(ellipse at 98% 100%, rgba(0,83,105,0.62) 0% 26%, transparent 30%),
-          radial-gradient(ellipse at 87% 96%, rgba(0,125,145,0.44) 0% 14%, transparent 19%),
-          /* Sky — blue at top, golden glow at horizon */
-          linear-gradient(180deg,
-            rgba(55,150,195,0.92) 0%,
-            rgba(110,205,218,0.72) 32%,
-            rgba(195,235,195,0.62) 50%,
-            rgba(255,228,125,0.92) 60%,
-            rgba(255,162,42,0.95) 67%,
-            rgba(0,148,162,0.97) 78%
-          );
-      }
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="minima-bay-icon-512.png" alt="">Minima Bay</a>
+    <nav aria-label="On this page">
+      <a href="#download">Download</a>
+      <a href="#apps">The apps</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#community">Community</a>
+    </nav>
+  </div>
+</header>
 
-      .horizon::before {
-        background: none;
-        opacity: 0;
-      }
-
-      .water {
-        inset: 48vh 0 0;
-        background:
-          /* Sun reflection on water surface */
-          radial-gradient(ellipse at 64% 4%, rgba(255,245,175,0.52) 0% 2%, rgba(255,218,72,0.28) 2% 9%, transparent 16%),
-          /* Scatter highlights */
-          radial-gradient(ellipse at 28% 18%, rgba(255,255,255,0.32) 0 1.2%, transparent 9%),
-          radial-gradient(ellipse at 75% 44%, rgba(255,255,255,0.22) 0 1%, transparent 7%),
-          /* Wave lines — slightly more dynamic than pool */
-          repeating-linear-gradient(171deg, rgba(255,255,255,0.17) 0 1px, transparent 1px 16px),
-          repeating-linear-gradient(19deg, rgba(255,255,255,0.11) 0 1px, transparent 1px 22px),
-          /* Water — vivid tropical teal */
-          linear-gradient(180deg,
-            rgba(0,198,188,0.94) 0%,
-            rgba(0,172,178,0.96) 28%,
-            rgba(0,138,162,0.97) 58%,
-            rgba(0,88,128,0.99) 100%
-          );
-      }
-
-      .topline .project-links { grid-column: 3; }
-
-      .water::after {
-        background:
-          radial-gradient(ellipse at 64% 7%, rgba(255,232,145,0.38), transparent 30%),
-          linear-gradient(180deg, transparent 58%, rgba(0,28,58,0.32));
-        mix-blend-mode: screen;
-      }
-    </style>
-  </head>
-  <body>
-
-    <div class="scene" aria-hidden="true">
-      <div class="horizon"></div>
-      <div class="water"></div>
-    </div>
-
-    <main class="app">
-
-      <header class="topline">
-        <div class="brand">
-          <span class="logo" aria-hidden="true">
-            <svg viewBox="0 0 64 64" focusable="false">
-              <path d="M10 24c7 4 11 4 18 0s11-4 18 0" />
-              <path d="M10 35c7 4 11 4 18 0s11-4 18 0" />
-              <path class="wave" d="M10 46c7 3 11 3 18 0s11-3 18 0" />
-            </svg>
-          </span>
-          <div>
-            <h1>Minima Bay</h1>
-            <p>Minima defi dapps</p>
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Finance, fully decentralised.</h1>
+      <p class="lead">Minima Bay brings six apps together in one, true to <a class="onground" href="https://minima.global">Minima</a> and as easy to use as the best.</p>
+      <div class="choices" id="download">
+        <div class="choice">
+          <h3>Android</h3>
+          <div class="scan">
+            <img src="assets/android-qr.png" alt="A code to scan with an Android phone: it downloads Minima Bay">
+            <p>Scan with your phone's camera.</p>
           </div>
+          <p class="or">or</p>
+          <a class="button" id="get-android" href="android/">Download for Android</a>
         </div>
-        <nav class="project-links" aria-label="Project links">
-          <a href="https://github.com/minima-bay" target="_blank" rel="noreferrer" aria-label="GitHub organisation">
-            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-              <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.31-5.47-1.34-5.47-5.95 0-1.31.47-2.39 1.24-3.23-.13-.3-.54-1.53.12-3.19 0 0 1.01-.32 3.3 1.23a11.4 11.4 0 0 1 6.02 0c2.29-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.89.12 3.19.77.84 1.23 1.92 1.23 3.23 0 4.62-2.81 5.63-5.49 5.93.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5z"/>
-            </svg>
-          </a>
-        </nav>
-      </header>
-
-      <div class="protocol-grid">
-
-        <a class="protocol-card protocol-card-link" href="pool/">
-          <div class="protocol-info">
-            <span class="protocol-icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64" focusable="false">
-                <path d="M16 20h32" />
-                <path d="M22 20v28" />
-                <path d="M42 20v28" />
-                <path d="M22 30h20" />
-                <path d="M22 40h20" />
-                <path class="wave" d="M10 51c5 3 9 3 14 0s9-3 14 0 10 3 16 0" />
-              </svg>
-            </span>
-            <div class="protocol-text">
-              <h3>The Pool</h3>
-              <!-- Was "MINIMA / USDT liquidity pool", which was wrong twice over on the first thing
-                   anybody sees. It is an on-chain ORDER BOOK and deliberately not an AMM, so "liquidity
-                   pool" names the wrong mechanism; and the live market is Winiwa / USDx, test assets
-                   worth nothing, so naming MINIMA and USDT read as real money on a venue whose own app
-                   carries a "Test assets, no value" chip and whose SECURITY verdict is still NOT READY
-                   FOR REAL FUNDS. -->
-              <p>On-chain order book &middot; test assets, no value</p>
-            </div>
+        <div class="choice">
+          <h3>Windows</h3>
+          <div class="pc">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4.5" width="16" height="11" rx="1.6"/><path d="M2 19.5h20"/></svg>
+            <p>With its own Minima node.</p>
           </div>
-        </a>
-
-        <a class="protocol-card protocol-card-link" href="bridge/">
-          <div class="protocol-info">
-            <span class="protocol-icon bridge-icon" aria-hidden="true">
-              <img src="assets/bridge-logo.svg" alt="">
-            </span>
-            <div class="protocol-text">
-              <h3>The Bridge</h3>
-              <p>Canonical Ethereum and Minima bridge research &middot; no real funds</p>
-            </div>
-          </div>
-        </a>
-
-        <article class="protocol-card is-coming">
-          <div class="protocol-info">
-            <span class="protocol-icon land-icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64" focusable="false">
-                <path d="M8 46 L22 28 L32 36 L44 18 L56 46" />
-                <path d="M8 52 H56" />
-              </svg>
-            </span>
-            <div class="protocol-text">
-              <h3>The Land</h3>
-              <p>Lending protocol</p>
-            </div>
-          </div>
-          <div class="protocol-actions">
-            <span class="coming-badge">Coming soon</span>
-          </div>
-        </article>
-
-        <article class="protocol-card is-coming">
-          <div class="protocol-info">
-            <span class="protocol-icon spring-icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64" focusable="false">
-                <path d="M14 50 H50" />
-                <path d="M14 50 L42 50 L42 38" />
-                <path d="M32 28 L42 38 L52 28" />
-                <path d="M42 38 L42 16" />
-              </svg>
-            </span>
-            <div class="protocol-text">
-              <h3>The Springboard</h3>
-              <p>Perpetual DEX</p>
-            </div>
-          </div>
-          <div class="protocol-actions">
-            <span class="coming-badge">Coming soon</span>
-          </div>
-        </article>
-
+          <span class="button soon" aria-disabled="true">Coming soon</span>
+        </div>
       </div>
+      <p class="small" id="which">Releases are published on <a class="onground" href="https://github.com/minima-bay/the-bay/releases">GitHub</a>.</p>
+      <p class="small">In development: testing with valueless tokens comes before anything real. No independent audit yet.</p>
+    </div>
+    <figure class="phone">
+      <div class="screen" role="img" aria-label="Minima Bay">
+        <img src="minima-bay-icon-512.png" alt="">
+        <span>Minima Bay</span>
+      </div>
+    </figure>
+  </div>
+</div>
 
-    </main>
+<main>
 
-  </body>
+<section id="apps">
+  <div class="wrap">
+    <h2>Six apps, one install.</h2>
+    <p class="sub">One Minima node and one wallet for all of them.</p>
+    <div class="grid">
+      <div class="card app"><img src="assets/apps/faucet.svg" alt=""><h3>The Faucet</h3><p>Free test assets to try every app.</p><span class="status live">In development</span></div>
+      <div class="card app"><img src="assets/apps/bridge.svg" alt=""><h3>The Bridge</h3><p>Ethereum &harr; Minima.</p><span class="status live">In development</span></div>
+      <div class="card app"><img src="assets/apps/pool.svg" alt=""><h3>The Pool</h3><p>Swap on chain, straight from your wallet.</p><span class="status live">In development</span></div>
+      <div class="card app"><img src="assets/apps/rapids.svg" alt=""><h3>The Rapids</h3><p>Fast trading, settled on chain.</p><span class="status live">In development</span></div>
+      <div class="card app"><img src="assets/apps/land.svg" alt=""><h3>The Land</h3><p>Lend and borrow.</p><span class="status">Coming soon</span></div>
+      <div class="card app"><img src="assets/apps/springboard.svg" alt=""><h3>The Springboard</h3><p>Perpetual futures.</p><span class="status">Coming soon</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="trustless">
+  <div class="wrap">
+    <h2>Trustless.</h2>
+    <p class="sub">The rules live in contracts on the Minima chain, and the chain itself enforces them.</p>
+    <div class="grid claims">
+      <div class="card"><h3>On chain</h3><p>Every asset is held by a contract on the Minima chain.</p></div>
+      <div class="card"><h3>Always yours</h3><p>Your assets depend on no counterparty, and only you can move them.</p></div>
+      <div class="card"><h3>Open source</h3><p>All dapps are on <a href="https://github.com/minima-bay">GitHub</a>.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <h2>Roadmap</h2>
+    <p class="sub">Where Minima Bay comes from, and its three stages to real tokens: development, testing with valueless tokens, then production.</p>
+    <ol class="road">
+      <li class="done">
+        <span class="when">May 2026</span>
+        <h3>It starts with The Pool</h3>
+        <p>An on-chain swap for Minima, straight from your wallet, with The Faucet's free test assets to try it.</p>
+      </li>
+      <li class="done">
+        <span class="when">October 2026</span>
+        <h3>One app, and a fast order book</h3>
+        <p>Every app comes together in one install, with one Minima node and one wallet. The Rapids brings fast trading, settled on chain.</p>
+      </li>
+      <li class="now stage">
+        <span class="when">Now &middot; Stage 1 of 3</span>
+        <h3>Finalising development</h3>
+        <p>The apps are being finished and brought to one design across all six.</p>
+      </li>
+      <li class="stage">
+        <span class="when">Soon &middot; Stage 2 of 3</span>
+        <h3>Testing with valueless tokens</h3>
+        <p>Every app is tested extensively with tokens that have no value, so anyone can try everything with nothing at risk. <a href="#community">Join in.</a></p>
+      </li>
+      <li class="stage">
+        <span class="when">Finally &middot; Stage 3 of 3</span>
+        <h3>In production with real tokens</h3>
+        <p>Once testing is complete, all six apps move to production and run with real tokens.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="community">
+  <div class="wrap">
+    <h2>Community</h2>
+    <p class="sub">News, questions and reports.</p>
+    <div class="links">
+      <a class="button" href="https://t.me/MinimaBay" rel="noreferrer">Telegram</a>
+      <a class="button" href="https://x.com/MinimaBay" rel="noreferrer">X</a>
+      <a class="button" href="https://github.com/minima-bay" rel="noreferrer">GitHub</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Minima Bay &middot; built on <a href="https://minima.global">Minima</a></span>
+  </div>
+</footer>
+
+<script>
+  // The button goes straight to the newest Android file on GitHub, and the line under the cards says which version.
+  // Until a release has one, the button keeps android/ and the line keeps its words.
+  fetch("https://api.github.com/repos/minima-bay/the-bay/releases?per_page=10")
+    .then(function (r) { return r.json(); })
+    .then(function (releases) {
+      for (var i = 0; i < releases.length; i++) {
+        if (releases[i].draft || releases[i].prerelease) continue;
+        var file = (releases[i].assets || []).filter(function (a) { return /^(MinimaBay|TheBay)[-_]v?[0-9.]+\.apk$/.test(a.name); })[0];
+        if (!file) continue;
+        document.getElementById("get-android").href = file.browser_download_url;
+        var line = document.getElementById("which"), link = line.querySelector("a");
+        line.textContent = "Version " + releases[i].tag_name.replace(/^v/, "") + " · ";
+        link.textContent = "all releases on GitHub";
+        line.appendChild(link);
+        return;
+      }
+    })
+    .catch(function () {});
+</script>
+<script src="assets/header.js"></script>
+</body>
 </html>
