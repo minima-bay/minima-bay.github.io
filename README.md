@@ -2,34 +2,44 @@
 
 # Minima Bay
 
-Open-source DeFi MiniDAPPs for the [Minima](https://minima.global) blockchain.
+Six DeFi apps for the [Minima](https://minima.global) blockchain, in one app, with one Minima node and one wallet.
 
-**Site:** https://minima-bay.github.io
+**Site:** https://minimabay.org
 
 ---
 
-## Projects
+## The apps
 
-| Project | Status | Description |
+| App | Status | What it is |
 |---|---|---|
-| [The Pool](https://minima-bay.github.io/pool) | Test release | On-chain order book. Test assets, no value |
-| [The Bridge](https://minima-bay.github.io/bridge) | Research | Canonical Ethereum and Minima bridge. Valueless only |
-| The Land | Coming soon | Lending protocol |
-| The Springboard | Coming soon | Perpetual DEX |
+| The Faucet | In development | Free test assets to try every app. No value |
+| The Bridge | In development | Ethereum and Minima. A lab, with test assets only |
+| The Pool | In development | Swap on chain, straight from your wallet. Test assets, no value |
+| The Rapids | In development | Fast trading, settled on chain. Test assets, no value |
+| The Land | Coming soon | Lend and borrow |
+| The Springboard | Coming soon | Perpetual futures |
 
-## Downloads
+## Get it
 
-MiniDapp and Android packages, with the SHA256 of each file, are published on the Pool releases page:
+The test release of Minima Bay for Android is coming soon, on [minimabay.org](https://minimabay.org). Windows, with
+its own Minima node, is coming.
 
-https://github.com/minima-bay/the-minima-pool/releases
-
-Verify your download against the hash in the release notes before installing:
+Each release on [Minima Bay's releases page](https://github.com/minima-bay/the-bay/releases) carries the SHA256 of its
+file. Check your download against it before installing:
 
 ```
 # PowerShell
-(Get-FileHash "ThePool_<version>.mds.zip" -Algorithm SHA256).Hash
+(Get-FileHash "MinimaBay-<version>.apk" -Algorithm SHA256).Hash
 ```
+
+## Documentation
+
+[How it works](https://github.com/minima-bay/the-bay/blob/main/docs/HOW-IT-WORKS.md) &nbsp;|&nbsp;
+[Security](https://github.com/minima-bay/the-bay/blob/main/docs/SECURITY.md) &nbsp;|&nbsp;
+[Governance](https://github.com/minima-bay/the-bay/blob/main/docs/GOVERNANCE.md) &nbsp;|&nbsp;
+[The Bridge](https://github.com/minima-bay/the-bay/blob/main/docs/BRIDGE.md) &nbsp;|&nbsp;
+[Privacy](https://github.com/minima-bay/the-bay/blob/main/PRIVACY.md)
 
 ---
 
-[GitHub organisation](https://github.com/minima-bay) &nbsp;|&nbsp; [X / Twitter](https://x.com/theminimapool) &nbsp;|&nbsp; [Telegram](https://t.me/theminimapool)
+[GitHub organisation](https://github.com/minima-bay) &nbsp;|&nbsp; [X](https://x.com/MinimaBay) &nbsp;|&nbsp; [Telegram](https://t.me/MinimaBay)
